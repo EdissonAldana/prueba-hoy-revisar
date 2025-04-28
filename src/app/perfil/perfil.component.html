@@ -1,0 +1,18 @@
+<h2>Perfil de Usuario</h2>
+
+<div *ngIf="isLoading; else userDataSection">
+  <p>Cargando información del perfil...</p>
+</div>
+
+<ng-template #userDataSection>
+  <div *ngIf="userData; else noData">
+    <p *ngIf="userData.nombre">Nombre: {{ userData.nombre }}</p>
+    <p *ngIf="userData.correo">Correo electrónico: {{ userData.correo }}</p>
+    </div>
+</ng-template>
+
+<ng-template #noData>
+  <p>No se encontraron datos del usuario.</p>
+</ng-template>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
